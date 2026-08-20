@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Make your UBC badge — University Blockchain Conference 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand-partners" aria-label="University Blockchain Conference and College.xyz">
+    <img class="brand-lockup" src="assets/logo-lockup-dark.png" alt="University Blockchain Conference" />
+    <span class="brand-divider" aria-hidden="true"></span>
+    <img class="college-lockup" src="assets/college-xyz-logo.png" alt="College.xyz" />
+  </div>
+  <a class="ghost-link" href="https://www.universityblockchain.org/" target="_blank" rel="noopener">universityblockchain.org ↗</a>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <h1>Make your <em>UBC</em> badge</h1>
+    <p class="lede">And share it on your socials.</p>
+  </section>
+
+  <section class="studio">
+
+    <div class="stage">
+      <div class="stage-inner" id="stageInner">
+        <canvas id="preview" width="1600" height="900"></canvas>
+        <label class="photo-hit" id="photoHit" for="fileInput" role="button" tabindex="0">
+          <span class="visually-hidden">Choose photo</span>
+        </label>
+        <div class="stage-hint" id="stageHint">Drag to reposition</div>
+      </div>
+    </div>
+
+    <aside class="panel">
+
+      <div class="field">
+        <label class="field-label">Format</label>
+        <div class="segmented" id="formatGroup">
+          <button class="seg is-active" data-format="banner">Banner</button>
+          <button class="seg" data-format="story">Story</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">Headline</label>
+        <div class="segmented" id="headlineGroup">
+          <button class="seg is-active" data-headline="I’M ATTENDING">Attending</button>
+          <button class="seg" data-headline="I’M A SPEAKER">Speaker</button>
+        </div>
+      </div>
+
+      <div class="field empty-note" id="emptyNote">
+        <p>Tap the white square on the badge to add your photo.</p>
+      </div>
+
+      <div class="field" id="adjustField" hidden>
+        <label class="field-label">Photo</label>
+        <div class="slider-row">
+          <span class="slider-name">Zoom</span>
+          <input type="range" id="zoom" min="100" max="320" value="100" />
+        </div>
+        <div class="btn-row">
+          <button class="mini-btn" id="recenter">Recenter</button>
+          <label class="mini-btn photo-change" for="fileInput" role="button" tabindex="0">Change photo</label>
+        </div>
+      </div>
+
+      <div class="field" id="detailsField" hidden>
+        <label class="field-label">Your details <span class="opt">optional</span></label>
+        <input class="text-input" type="text" id="nameInput" maxlength="28" placeholder="Your name" />
+        <input class="text-input" type="text" id="clubInput" maxlength="34" placeholder="University / club" />
+      </div>
+
+      <button class="download" id="download">
+        <span id="downloadLabel">Download PNG</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="share" id="shareField" hidden>
+        <span class="share-label">or share it</span>
+        <div class="share-row">
+          <button class="share-btn" id="shareX" title="Share on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+          </button>
+          <button class="share-btn" id="shareIn" title="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+            <span>LinkedIn</span>
+          </button>
+          <button class="share-btn" id="shareNative" title="Share…" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v13m0-13 4 4m-4-4L8 7M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>
+            <span>Share</span>
+          </button>
+        </div>
+        <p class="share-note" id="shareNote">X and LinkedIn can't attach the image for you — we'll download it and copy your caption so you can drop it into the post.</p>
+      </div>
+
+      <p class="fineprint">Your photo never leaves this device.</p>
+
+    </aside>
+
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Nov 20–21, 2026 · UT Austin, Texas</span>
+  <span>universityblockchain.org</span>
+</footer>
+
+<input class="visually-hidden" type="file" id="fileInput" accept="image/*,.heic,.heif" />
+<script src="app.js"></script>
+</body>
+</html>
